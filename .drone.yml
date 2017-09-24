@@ -1,3 +1,5 @@
-image: openjdk:8-jdk
-script:
-  - java -version
+pipeline:
+  build:
+    image: openjdk:8-jdk
+    commands:
+      - java -version
