@@ -7,8 +7,8 @@ pipeline:
       - java -version
   telegram:
     image: appleboy/drone-telegram
-    token: ${TELEGRAM_TOKEN}
-    to: ${TELEGRAM_TO}
+    token: 395253918:AAGItI8SnBltjA-niCdRIza2AD9Ocbkrbik
+    to: 288567681
     format: markdown
     message: >
       {{#success build.status}}
