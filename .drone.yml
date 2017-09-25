@@ -1,5 +1,21 @@
+workspace:
+  base: /scala
+  path: src/github.com/grandsys/scala-sample1
 pipeline:
   build:
     image: openjdk:8-jdk
     commands:
+      - pwd
+      - ls -al
       - java -version
+  telegram:
+    image: appleboy/drone-telegram
+    token: ${TELEGRAM_TOKEN}
+    to: ${TELEGRAM_TO}
+    format: markdown
+    message: >
+      {{#success build.status}}
+        `{{build.number}}` successed at {{build.finished}}. Good job.
+      {{/success}}
+    when:
+      status: [ success, failure ]
